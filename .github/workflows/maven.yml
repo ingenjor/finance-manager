@@ -1,3 +1,12 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
 env:
   MAVEN_CLI_OPTS: "--batch-mode --errors --show-version"
   JAVA_VERSION: '17'
@@ -6,7 +15,6 @@ jobs:
   build-and-test:
     name: Build and Test
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -34,6 +42,10 @@ jobs:
           name: jacoco-report
           path: target/site/jacoco/
           retention-days: 30
+
+      - name: Run quality checks
+        if: success()
+        run: mvn $MAVEN_CLI_OPTS verify -Pquality
 
       - name: Package application
         run: mvn $MAVEN_CLI_OPTS package
