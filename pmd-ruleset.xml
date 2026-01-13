@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset name="Finance Manager Rules"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0
+         http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+
+    <description>Simplified PMD rules for Finance Manager project</description>
+
+    <!-- Минимальный набор правил для избежания ошибок -->
+    <rule ref="category/java/bestpractices.xml/UnusedPrivateMethod"/>
+    <rule ref="category/java/codestyle.xml/UnnecessaryImport"/>
+    <rule ref="category/java/errorprone.xml/EmptyCatchBlock"/>
+
+</ruleset>

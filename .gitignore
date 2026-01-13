@@ -1,0 +1,83 @@
+### --- Java --- ###
+# Файлы компиляции
+*.class
+*.war
+*.ear
+
+### --- Maven --- ###
+# Целевая директория сборки
+target/
+
+# Файлы, генерируемые Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Директория Maven wrapper (но сохраняем сам jar)
+.mvn/wrapper/maven-wrapper.properties
+!.mvn/wrapper/maven-wrapper.jar
+
+### --- IntelliJ IDEA --- ###
+# Конфигурация IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Директории сборки IDEA
+out/
+
+### --- Данные приложения --- ###
+# Файлы данных, создаваемые приложением
+users_data.dat
+exports/
+saves/
+*.data
+backup/
+
+### --- Системные файлы --- ###
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+### --- Временные файлы --- ###
+*.tmp
+*.temp
+*.bak
+*.swp
+*~.nib
+local.properties
+
+### --- Логи --- ###
+*.log
+logs/
+log/
+
+### --- Отчеты и документация --- ###
+# Отчеты тестов
+target/surefire-reports/
+target/failsafe-reports/
+target/site/
+
+# Отчеты JaCoCo
+*.exec
+jacoco.exec
+target/jacoco.exec

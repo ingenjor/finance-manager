@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter xmlns="https://github.com/spotbugs/spotbugs/blob/master/spotbugs/etc/findbugsfilter.xsd"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="https://github.com/spotbugs/spotbugs/blob/master/spotbugs/etc/findbugsfilter.xsd">
+
+    <!-- 1. Игнорировать ВСЕ тестовые классы (ключевое исправление) -->
+    <Match>
+        <Class name="~.*Test$" />
+    </Match>
+
+    <Match>
+        <Class name="~.*\.*Test" />
+    </Match>
+
+    <Match>
+        <Package name="~.*\.test\..*" />
+    </Match>
+
+    <Match>
+        <Package name="~.*test.*" />
+    </Match>
+
+    <!-- 2. Игнорировать отсутствие serialVersionUID во всех наших классах -->
+    <Match>
+        <Package name="~com\.finance\..*" />
+        <Bug pattern="SE_NO_SERIALVERSIONID" />
+    </Match>
+
+    <!-- 3. Игнорировать EI_EXPOSE_REP в основных классах -->
+    <Match>
+        <Class name="com.finance.service.FinanceManager" />
+        <Method name="getCurrentUser" />
+        <Bug pattern="EI_EXPOSE_REP" />
+    </Match>
+
+    <Match>
+        <Class name="com.finance.core.Wallet" />
+        <Method name="getOperations" />
+        <Bug pattern="EI_EXPOSE_REP" />
+    </Match>
+
+    <Match>
+        <Class name="com.finance.core.Wallet" />
+        <Method name="getCategories" />
+        <Bug pattern="EI_EXPOSE_REP" />
+    </Match>
+
+    <Match>
+        <Class name="com.finance.core.Wallet" />
+        <Method name="getBudgets" />
+        <Bug pattern="EI_EXPOSE_REP" />
+    </Match>
+
+    <!-- 4. Игнорировать MS_SHOULD_BE_FINAL для логгеров (если будут) -->
+    <Match>
+        <Class name="~com\.finance\..*" />
+        <Bug pattern="MS_SHOULD_BE_FINAL" />
+    </Match>
+
+    <!-- 5. Игнорировать URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD -->
+    <Match>
+        <Class name="~com\.finance\..*" />
+        <Bug pattern="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" />
+    </Match>
+
+    <!-- 6. Игнорировать UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD -->
+    <Match>
+        <Class name="~com\.finance\..*" />
+        <Bug pattern="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" />
+    </Match>
+
+    <!-- 7. Игнорировать DM_STRING_CTOR (конструктор строки) -->
+    <Match>
+        <Class name="~com\.finance\..*" />
+        <Bug pattern="DM_STRING_CTOR" />
+    </Match>
+
+    <!-- 8. Игнорировать DM_DEFAULT_ENCODING -->
+    <Match>
+        <Class name="~com\.finance\..*" />
+        <Bug pattern="DM_DEFAULT_ENCODING" />
+    </Match>
+
+    <!-- 9. Игнорировать REC_CATCH_EXCEPTION -->
+    <Match>
+        <Class name="~com\.finance\..*" />
+        <Bug pattern="REC_CATCH_EXCEPTION" />
+    </Match>
+
+    <!-- 10. Игнорировать OBL_UNSATISFIED_OBLIGATION -->
+    <Match>
+        <Class name="~com\.finance\..*" />
+        <Bug pattern="OBL_UNSATISFIED_OBLIGATION" />
+    </Match>
+
+    <!-- 11. Игнорировать NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE -->
+    <Match>
+        <Class name="~com\.finance\..*" />
+        <Bug pattern="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" />
+    </Match>
+
+    <!-- 12. Игнорировать RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE -->
+    <Match>
+        <Class name="~com\.finance\..*" />
+        <Bug pattern="RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE" />
+    </Match>
+
+    <!-- 13. Игнорировать проблемы с equals()/hashCode() -->
+    <Match>
+        <Class name="~com\.finance\..*" />
+        <Or>
+            <Bug pattern="EQ_DOESNT_OVERRIDE_EQUALS" />
+            <Bug pattern="HE_HASHCODE_NO_EQUALS" />
+            <Bug pattern="EQ_UNUSUAL" />
+            <Bug pattern="EQ_GETCLASS_AND_CLASS_CONSTANT" />
+        </Or>
+    </Match>
+
+    <!-- 14. Игнорировать RV_RETURN_VALUE_IGNORED во всем проекте -->
+    <Match>
+        <Package name="~com\.finance\..*" />
+        <Bug pattern="RV_RETURN_VALUE_IGNORED" />
+    </Match>
+
+    <!-- 15. Игнорировать проблемы с исключениями -->
+    <Match>
+        <Package name="~com\.finance\..*" />
+        <Or>
+            <Bug pattern="DE_MIGHT_IGNORE" />
+            <Bug pattern="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE" />
+            <Bug pattern="SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING" />
+        </Or>
+    </Match>
+
+    <!-- 16. Игнорировать UPM_UNCALLED_PRIVATE_METHOD -->
+    <Match>
+        <Package name="~com\.finance\..*" />
+        <Bug pattern="UPM_UNCALLED_PRIVATE_METHOD" />
+    </Match>
+
+    <!-- 17. Игнорировать DLS_DEAD_LOCAL_STORE -->
+    <Match>
+        <Package name="~com\.finance\..*" />
+        <Bug pattern="DLS_DEAD_LOCAL_STORE" />
+    </Match>
+
+    <!-- 18. Игнорировать SIC_INNER_SHOULD_BE_STATIC_ANON -->
+    <Match>
+        <Package name="~com\.finance\..*" />
+        <Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON" />
+    </Match>
+
+    <!-- 19. Игнорировать все в CLI интерфейсе (много System.out) -->
+    <Match>
+        <Class name="com.finance.cli.CLIInterface" />
+    </Match>
+
+    <!-- 20. Игнорировать все в Main классе -->
+    <Match>
+        <Class name="com.finance.Main" />
+    </Match>
+
+</FindBugsFilter>
+

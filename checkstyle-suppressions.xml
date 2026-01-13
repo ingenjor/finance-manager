@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+        "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+        "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <!-- Test classes -->
+    <suppress files=".*[\\/]test[\\/].*" checks=".*" />
+    <suppress files=".*Test\.java" checks=".*" />
+
+    <!-- CLI interface can have longer methods -->
+    <suppress files="CLIInterface\.java" checks="MethodLength" />
+
+    <!-- FinanceManager is the main service class -->
+    <suppress files="FinanceManager\.java" checks="MethodLength" />
+
+    <!-- Wallet is the core domain class -->
+    <suppress files="Wallet\.java" checks="MethodLength" />
+
+    <!-- CLI can use System.out -->
+    <suppress files="CLIInterface\.java" checks="SystemOut" />
+
+    <!-- Allow magic numbers in test data -->
+    <suppress files="FinanceManagerTest\.java" checks="MagicNumber" />
+</suppressions>
