@@ -26,7 +26,8 @@ jobs:
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: 'temurin'
-          cache: 'maven' # ✅ Автоматическое кэширование зависимостей Maven
+          cache: 'maven'  
+
 
       - name: Build with Maven
         run: mvn $MAVEN_CLI_OPTS clean compile
@@ -61,4 +62,3 @@ jobs:
             target/*.jar
             !target/original-*.jar
           retention-days: 30
-          
